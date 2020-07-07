@@ -3,6 +3,28 @@
 # Known non-working (YMMV): Dosbox SVN CE (Dosbox Core is now preferred anyway), Emux (requires a special build recipe)
 # Partial Reference: https://libretro.readthedocs.io/en/latest/development/retroarch/compilation/linux-and-bsd/
 
+# Find out where this script is
+HERE=$(pwd)
+
+# Install build essential, if it's not already installed
+if [[ $(whereis build-essential) == "build-essential:" ]]; then
+  echo "build-essential needs to be installed. Please enter your password to install it"
+  sudo apt-get install build-essential -y
+fi
+
+# Install git, if it's not already installed
+if [[ $(whereis git) == "git:" ]]; then
+  echo "git needs to be installed. Please enter your password to install it"
+  sudo apt-get install git -y
+fi
+
+# Install ccache and add to $PATH, if it's not already installed
+if [[ $(whereis ccache) == "ccache:" ]]; then
+ echo "ccache needs to be installed. Please enter your password to install it"
+ sudo apt-get install ccache -y
+ echo PATH="\$PATH:/usr/lib/ccache/bin/" >> ~/.bashrc
+fi
+
 # FORCE when set to YES will build regardless of changes
 # NOCLEAN when set to 1 will prevent make clean before each build. Do not use NOCLEAN on core recipes or cores won't pull changes. Due to this situation I recommend against building MAME as part of this script.
 # EXIT_ON_ERROR determines if the build stops on errors
@@ -82,3 +104,52 @@ done
 # Replace core info in default config with git core info
 rm "$XDG_CONFIG_HOME"/retroarch/cores/*.info
 cp ~/src/libretro-super/dist/info/*.info "$XDG_CONFIG_HOME"/retroarch/cores/
+
+# Create "applications" folder in ~/.local/share if it doesn't exist
+if [[ ! -d "$HOME"/.local/share/applications ]]; then
+  cd "$HOME"/.local/share
+  mkdir "applications"
+  echo "Creating applications folder for shortcuts"
+fi
+
+# create a shortcut in menu for Retroarch in "Games" if it doesn't exist
+if [[ ! -f "$HOME/.local/share/applications/Retroarch.Desktop" ]]; then
+  echo "Retroarch shortcut doesn't exist"
+  cd "$HOME"/.local/share/applications
+  touch Retroarch.desktop
+  echo "[Desktop Entry]" >> Retroarch.desktop
+  echo "Type=Application" >> Retroarch.desktop
+  echo "Encoding=UTF-8" >> Retroarch.desktop
+  echo "Name=Retroarch" >> Retroarch.desktop
+  echo "Comment=Retroarch" >> Retroarch.desktop
+  echo "Exec=retroarch" >> Retroarch.desktop
+  echo "Icon=${HOME}/src/libretro-super/retroarch/media/retroarch.icns" >> Retroarch.desktop
+  echo "Terminal=false" >> Retroarch.desktop
+  echo "Categories=Game;" >> Retroarch.desktop
+  echo "Creating Retroarch shortcut in Games"
+fi
+
+# Create a shortcut in menu for updating retroarch "Applications" if it doesn't exist
+if [[ ! -f "$HOME/.local/share/applications/Update-Retroarch.Desktop" ]]; then
+  echo "Update-Retroarch shortcut doesn't exist"
+  cd "$HOME"/.local/share/applications
+  touch Update-Retroarch.desktop
+  echo "[Desktop Entry]" >> Update-Retroarch.desktop
+  echo "Type=Application" >> Update-Retroarch.desktop
+  echo "Encoding=UTF-8" >> Update-Retroarch.desktop
+  echo "Name=Update Retroarch" >> Update-Retroarch.desktop
+  echo "Comment=Update Retroarch" >> Update-Retroarch.desktop
+  echo "Exec=updatera" >> Update-Retroarch.desktop
+  echo "Icon=${HOME}/src/libretro-super/retroarch/media/retroarch.icns" >> Update-Retroarch.desktop
+  echo "Terminal=true" >> Update-Retroarch.desktop
+  echo "Categories=Utility;" >> Update-Retroarch.desktop
+  echo "Creating Update-Retroarch shortcut"
+fi
+
+# Move script to $HOME/.local/bin
+cd "$HERE"
+mv updatera "$HOME"/bin
+
+# Tell you it's done, and closing in 3 seconds
+echo "Done updating Retroarch - This will close in 3 seconds"
+sleep 3
