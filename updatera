@@ -39,7 +39,7 @@ cd libretro-super
 # Build retroarch
 FORCE=NO EXIT_ON_ERROR=1 ./libretro-buildbot-recipe.sh recipes/linux/retroarch-linux-x64
 mkdir -p ~/.local/bin
-ln -sfT ~/.local/src/libretro-super/retroarch/retroarch ~/.local/bin/retroarch
+ln -fT ~/.local/src/libretro-super/retroarch/retroarch ~/.local/bin/retroarch
 
 # Generate custom recipe for cores
 truncate -s 0 recipes/linux/custom-cores-x64
