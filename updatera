@@ -27,25 +27,34 @@ RED='\033[0;31m' # Red Color
 GREEN='\033[0;32m' # Blue Color
 NC='\033[0m' # No Color
 
-# Check for and install missing dependencies
-if [[ $(apt-get build-dep -s retroarch) == *"The following NEW packages will be installed:"* ]] && [[ $(whereis git) == "git:" ]]; then
-  clear  
-  echo -e "${GREEN}Retroarch build dependencies, and git need to be installed"
-  echo ""
-  echo -e "Please enter your password to install them${NC}"
-  sudo apt-get build-dep retroarch -y && sudo apt-get install git -y
-elif [[ $(apt-get build-dep -s retroarch) == *"The following NEW packages will be installed:"* ]]; then
+# Check for retroarch build dependencies, and install if missing
+if [[ $(apt-get build-dep -s retroarch) == *"The following NEW packages will be installed:"* ]]; then
   clear
-  echo -e "${GREEN}Retroarch build dependencies need to be installed"
+  echo -e "${RED}Retroarch build dependencies ${GREEN}need to be installed${NC}"
   echo ""
-  echo -e "Please enter your password to install them${NC}"
+  echo -e "${GREEN}Lets install them now${NC}"
+  echo ""
   sudo apt-get build-dep retroarch -y
-elif [[ $(whereis git) == "git:" ]]; then
+fi
+
+# Check if git is installed, and install if missing
+if [[ $(whereis git) == "git:" ]]; then
   clear
-  echo -e "${GREEN}git needs to be installed"
+  echo -e "${RED}git ${GREEN}needs to be installed${NC}"
   echo ""
-  echo -e "Please enter your password to install it${NC}"
+  echo -e "${GREEN}Lets install it now${NC}"
+  echo ""
   sudo apt-get install git -y
+fi
+
+# Check if nasm is installed, and install if missing
+if [[ $(whereis nasm) == "nasm:" ]]; then
+  clear
+  echo -e "${RED}nasm ${GREEN}needs to be installed for building Mupen64Plus-Next${NC}"
+  echo ""
+  echo -e "${GREEN}Lets install it now${NC}"
+  echo ""
+  sudo apt-get install nasm -y
 fi
 
 # FORCE when set to YES will build regardless of changes
@@ -54,7 +63,7 @@ fi
 # SINGLE_CORE can be set to a core name to bypass building the entire recipe (core set)
 
 # Cores to be built, exporting the libretro_cores env var will use that list instead. For most people, ~/.bashrc will suffice for this.
-[[ -z "$libretro_cores" ]] && libretro_cores="2048 atari800 bluemsx citra desmume dolphin fbneo fceumm ffmpeg flycast gambatte gearsystem genesis_plus_gx gw hatari mednafen_lynx mednafen_ngp mednafen_pce_fast mednafen_psx_hw mednafen_saturn mednafen_supergrafx mednafen_vb mednafen_wswan melonds mesen mgba mupen64plus_next neocd opera picodrive pokemini ppsspp prboom prosystem quasi88 sameboy snes9x stella thepowdertoy vemulator vice_x128 virtualjaguar"
+[[ -z "$libretro_cores" ]] && libretro_cores="atari800 bluemsx fbneo fceumm flycast gambatte genesis_plus_gx gpsp handy mednafen_pce_fast mednafen_psx_hw mednafen_psx mednafen_vb mednafen_wswan melonds mesen mgba mupen64plus_next neocd nestopia opera parallel_n64 pcsx_rearmed picodrive ppsspp prosystem snes9x stella virtualjaguar yabause"
 
 # Support users with modified XDG_CONFIG_HOME location
 [[ -z "$XDG_CONFIG_HOME" ]] && XDG_CONFIG_HOME="$HOME/.config"
@@ -192,7 +201,7 @@ if [[ "$PATH" == *"${HOME}/.local/bin"* ]]; then
 # If $HOME/.local/bin wasn't already in $PATH. Tell user they must log in/out, or restart pc for this to work, and terminal closing in 3 seconds
 else
   clear
-  echo -e "${GREEN}${HOME}/.local/bin was ${RED}not${GREEN} found in your PATH"
+  echo -e "${GREEN}${HOME}/.local/bin was ${RED}not${GREEN} found in your PATH${NC}"
   echo ""
   echo -e "${GREEN}You must ${RED}log out and back in, or restart${GREEN} your computer"
   echo ""
