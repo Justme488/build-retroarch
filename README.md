@@ -14,3 +14,5 @@
 
 * Checks if /home/username/.local/bin is in your PATH. If not, it tells you to log out/in, or restart.
 
+### There is an [uninstall script](https://github.com/Justme488/uninstall-ra) if you would like to remove dependencies and files/folders it created.
+
