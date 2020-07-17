@@ -3,7 +3,7 @@
 ### Here's how it works
 * Clones or pulls changes from libretro-super repo
 * Builds Retroarch
-* Builds cores (see cores below)
+* Builds cores (see cores below - WIP)
 * Locks those cores (you can use the online updater to update all cores without overwrite)
 * Creates a folder in _/home/username/.config_ named _retroarch_
 ### Features include:
