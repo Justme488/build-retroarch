@@ -5,6 +5,7 @@
 * Builds Retroarch
 * Builds cores (see cores below)
 * Locks those cores (you can use the online updater to update all cores without overwrite)
+* Creates a folder in _/home/username/.config_ named _retroarch_
 ### Features include:
 * Creates a log in _/home/your-username/.config_ (when you install or update)
 * Creates _Retroarch_ shortcut in menu - _Menu > Games > Retroarch_
