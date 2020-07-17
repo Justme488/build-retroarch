@@ -1,4 +1,4 @@
-## Script for building/updating retroarch and select cores for Debian/Ubuntu/Mint
+## Script for building/updating retroarch and select cores for Debian/Mint/Ubuntu
 ### I changed, and added a few things from the [Original script written by Sanaki](https://gist.github.com/Sanaki/44200de635032c21d5d9a11aba75b23b/)
 ### Here's how it works
 * Clones or pulls changes from libretro-super repo
