@@ -136,8 +136,6 @@ if [[ ! -f "${HOME}/.local/share/applications/retroarch.desktop" ]]; then
   echo "Terminal=false" >> retroarch.desktop
   echo "Categories=Game;" >> retroarch.desktop
   chmod +x retroarch.desktop
-  echo ""
-  echo ""
 fi
 
 # Create a shortcut in menu for updating retroarch in "Applications" if it doesn't exist
