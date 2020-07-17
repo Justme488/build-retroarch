@@ -1,4 +1,4 @@
-#DO NOT USE - WIP
+# DO NOT USE - WIP
 
 
 ## Script for building/updating retroarch and select cores
