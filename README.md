@@ -1,4 +1,4 @@
-# Script for building/updating retroarch and select cores ( x86_64 )
+# Script for building/updating retroarch and select cores</br>( x86_64 Linux )
 Tested with Linux Mint 20 (x86_64), but _should_ work with Ubuntu.
 ### I changed, and added a few things from the [Original script written by Sanaki](https://gist.github.com/Sanaki/44200de635032c21d5d9a11aba75b23b/)
 ( To make it more user friendly )
