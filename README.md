@@ -18,3 +18,33 @@ Tested with Linux Mint 20, but _should_ work with Ubuntu.
 * Enable "[_Source code repositories_]( https://github.com/Justme488/screenshots/blob/master/build-retroarch/mint-software-sources.png)" in _Menu > System Settings > Software Sources_
 * Install the needed dependencies (The [dependency installer link](https://github.com/Justme488/retroarch-dependency-installer) shows what I needed)
 * Run `./build-retroarch`
+
+## Cores built/updated:
+| System | Core(s)
+|--------|------|
+| Arcade | FinalBurn Neo|
+| Atari 2600 | Stella|
+| Atari 5200 | Atari800 |
+| Atari 7800 | ProSystem |
+| Atari Jaguar | Virtual Jaguar |
+| Atari Lynx |Handy |
+| Bandai WonderSwan/Color | Beetle Cygne |
+| MSX/SVI/ColecoVision/SG-1000 | blueMSX |
+| NEC PC Engine / CD | Beetle PCE Fast |
+| Nintendo 3DS | Citra |
+| Nintendo DS | melonDS |
+| Nintendo Game Boy / Color | Gambatte |
+| Nintendo Game Boy Advance | gpSP</br>mGBA |
+| Nintendo GameCube / Wii | Dolphin |
+| Nintendo NES | FCEUmm</br>Mesen</br>Nestopia UE |
+| Nintendo 64 | Mupen64Plus-Next</br>ParaLLel N64 |
+| Nintendo SNES | Snes9x - current |
+| Nintendo Virtual Boy | Beetle VB |
+| Sega Dreamcast | Flycast |
+| Sega MS/GG/MD/CD | Genesis Plus GX |
+| Sega MS/MD/CD/32X | PicoDrive |
+| Sega Saturn | Yabause |
+| SNK Neo Geo CD | NeoCD |
+| Sony PlayStation | Beetle PSX HW</br>Beetle PSX</br>DuckStation</br>PCSX ReARMed |
+| Sony PlayStation Portable | PPSSPP |
+| The 3DO Company - 3DO | Opera |
