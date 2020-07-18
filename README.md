@@ -18,7 +18,7 @@ Tested with Linux Mint 20 (x86_64), but _should_ work with Ubuntu.
 # How to use:
 * Enable "[_Source code repositories_]( https://github.com/Justme488/screenshots/blob/master/build-retroarch/mint-software-sources.png)" in _Menu > System Settings > Software Sources_
 * Install the needed dependencies (The [dependency installer link](https://github.com/Justme488/retroarch-dependency-installer) shows what I needed)
-* Run `./build-retroarch`
+* Make executable `chmod +x build-retroarch` and run `./build-retroarch`
 
 ## Cores built/updated:
 | System | Core(s)
