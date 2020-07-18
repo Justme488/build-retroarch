@@ -15,6 +15,7 @@ Tested with Linux Mint 20, but _should_ work with Ubuntu.
 ### There is an [_uninstall_](https://github.com/Justme488/remove-retroarch) script, if you would like to remove files/folders it created.
 
 # How to use:
+* Enable <a href="https://github.com/Justme488/screenshots/blob/master/build-retroarch/mint-software-sources.png" target="_blank">Source code repositories</a>
 * Enable "[_Source code repositories_]( https://github.com/Justme488/screenshots/blob/master/build-retroarch/mint-software-sources.png)" in _Menu > System Settings > Software Sources_
 * Install the needed dependencies (The [dependency installer link](https://github.com/Justme488/retroarch-dependency-installer) shows what I needed)
 * Run `./build-retroarch`
