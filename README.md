@@ -8,7 +8,7 @@ Tested with Linux Mint 20 (x86_64), but _should_ work with Ubuntu.
 * Creates _Retroarch_ shortcut in menu - _Menu > Games > Retroarch_
 * Creates _Update Retroarch_ shortcut in menu - _Menu > Accessories > Update Retroarch_
 * Moves the script to where it belongs. You can run it from anywhere in your home directory the first time.
-* Checks if /home/username/.local/bin is in your PATH. If not, it tells you restart your computer.</br>>
+* Checks if /home/username/.local/bin is in your PATH. If not, it tells you restart your computer.</br>
   ( _/home/username/.local/bin_ will be in your PATH after you reboot )
 * See the cores below that it builds and updates.</br>
   ( They can be changed in line 31 of /home/username/.local/bin/update-retroarch )
